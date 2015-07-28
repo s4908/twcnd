@@ -9,13 +9,15 @@ class UserController < ApplicationController
 
   def update
     @user.update(user_params)
+    @user.info_completed = true
+
     if @user.save
       flash.now[:notice] = "成功資料更新"
     else
       flash.now[:error] = "請確認欄位是否填寫正確"
     end
+    
     render :edit
-
   end
 
 private

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150728095145) do
+ActiveRecord::Schema.define(version: 20150728121443) do
 
   create_table "monsters", force: :cascade do |t|
     t.string   "name"
@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 20150728095145) do
     t.string   "game_id"
     t.string   "line_name"
     t.text     "remark"
+    t.boolean  "info_completed"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
