@@ -1,8 +1,10 @@
 class User < ActiveRecord::Base
+  has_many :users_units
+  has_many :monsters, through: :users_units
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-  validates :game_name, presence: true 
-  validates :game_id, presence: true 
+  validates :game_name, presence: true, on: :update
+  validates :game_id, presence: true, on: :update
 end

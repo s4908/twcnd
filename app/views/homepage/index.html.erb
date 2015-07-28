@@ -1,3 +1,18 @@
-<%@monsters.each do |monster| %>
-<%= image_tag("#{monster.image_number}.jpg") %>
+<%@users.each do |user| %>
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 user">
+      <strong>遊戲暱稱:</strong> <%= user.game_name %> <span>(<%= user.game_id %>)</span><br>
+      <strong>LINE暱稱:</strong> <%= user.line_name %> <br>
+      <div id="owl-demo" class="owl-carousel">
+        <% user.users_units.each do |unit| %>
+          <div class="unit item">
+            <%= image_tag("#{unit.image_number}.jpg") %>
+            <div class="mainUnit">✭</div>
+            <div class="level">Lv<%= unit.monster_level %></div> 
+          </div>
+        <% end %>
+      </div>
+
+      <pre>下一隻買貓女</pre>
+      <hr>
+    </div>
 <% end %>

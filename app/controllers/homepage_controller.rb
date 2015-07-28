@@ -1,5 +1,5 @@
 class HomepageController < ApplicationController
   def index
-    @monsters = Monster.all
+    @users = User.all.includes(:users_units).includes(:monsters)
   end
 end
