@@ -1,0 +1,10 @@
+<h2>我的資料</h2>
+<%= simple_form_for @user do |f| %>
+  <%= f.input :game_name, label: "城與龍暱稱" %>
+  <%= f.input :game_id, label: "城與龍 ID" %>
+  <%= f.input :line_name, label: "Line 暱稱" %>
+  <%= f.input :remark, label: "備註" %>
+  <%= f.button :submit, '更新資料' %>
+<% end %>
+<hr>
+<h2>我的寵物</h2>
