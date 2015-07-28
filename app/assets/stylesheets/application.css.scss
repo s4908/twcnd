@@ -15,3 +15,51 @@
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+body { 
+  background-color: #FFE8C3;
+  padding-top: 70px;
+}
+pre {
+  background-color: #F1F3DA;
+  margin-top: 10px;
+}
+hr {
+  border-color: #CCB588;
+}
+.unit {
+  display: inline-block;
+  position: relative;
+  width: 60px;
+}
+.unit .level {
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  text-align: center;
+  color: #ffffff;
+  font-size: 12px;
+}
+.unit .mainUnit {
+  position: absolute;
+  top: 0px;
+  width: 100%;
+  color: #ff0000;
+  font-size: 12px;
+}
+.user {
+  background-color: #FFE8C3;
+
+}
+#owl-demo {
+  height: 60px;
+}
+
+#owl-demo .item{
+  margin: 3px;
+  width: 60px;
+}
+#owl-demo .item img{
+  display: inline-block;
+  height: 60px;
+}

@@ -1,14 +1,45 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>TwcndFriends</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>TW # Castle and Dragon</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <link rel="stylesheet" type="text/css" href="http://smashingboxes.github.io/OwlCarousel2/assets/owlcarousel/assets/owl.carousel.min.css">
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <nav class="navbar navbar-fixed-top navbar-inverse">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">TW ✜ 城とドラゴン</a>
+      </div>
+      <div id="navbar" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="#">戰友列表</a></li>
+          <li><a href="#about">我的資料</a></li>
+          <li>
+            <% if user_signed_in? %>
+              <%= link_to '登出', destroy_user_session_path, method: :delete %>
+            <% else %>
+              <%= link_to '登入', new_user_session_path %>
+            <% end %>
+          </li>
+        </ul>
+      </div><!-- /.nav-collapse -->
+    </div><!-- /.container -->
+  </nav><!-- /.navbar -->
+<div class="container">
+  <%= yield %>
+</div>
 
-<%= yield %>
 
 </body>
+<script type="text/javascript" src="http://smashingboxes.github.io/OwlCarousel2/assets/owlcarousel/owl.carousel.js"></script>
 </html>
