@@ -10,6 +10,8 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
+ *= require owl.carousel
+ *= require owl.theme.default
  *= require_tree .
  *= require_self
  */
@@ -22,7 +24,6 @@ body {
 }
 pre {
   background-color: #F1F3DA;
-  margin-top: 10px;
 }
 hr {
   border-color: #CCB588;
@@ -60,4 +61,12 @@ hr {
 
 .owl-carousel {
   margin-top: 8px;
+}
+
+.owl-theme .owl-dots .owl-dot span {
+  width: 5px;
+  height: 5px;
+}
+.owl-theme .owl-controls {
+  margin-top: -10px;
 }

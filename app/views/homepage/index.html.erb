@@ -6,7 +6,7 @@
         <% user.users_units.each do |unit| %>
           <div class="unit item">
             <%= image_tag("#{unit.image_number}.jpg") %>
-            <div class="mainUnit">✭</div>
+            <div class="mainUnit"></div>
             <div class="level">Lv<%= unit.monster_level %></div> 
           </div>
         <% end %>
