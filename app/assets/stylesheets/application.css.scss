@@ -32,6 +32,11 @@ hr {
   position: relative;
   width: 60px;
 }
+
+.unit img {
+  width: 60px;
+}
+
 .unit .level {
   position: absolute;
   bottom: 0px;
@@ -47,10 +52,7 @@ hr {
   color: #ff0000;
   font-size: 12px;
 }
-.user {
-  background-color: #FFE8C3;
 
-}
 #owl-demo {
   height: 60px;
 }

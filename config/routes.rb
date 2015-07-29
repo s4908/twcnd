@@ -1,8 +1,17 @@
 Rails.application.routes.draw do
   devise_for :users
+
   root "homepage#index"
 
-  resource :user, controller: :user, only: [:show, :edit, :update]
+  resource :user, controller: :user, only: [:show, :edit, :update] do
+    resources :users_units, only: [:new, :create, :edit, :update], as: 'unit'
+  end
+
+  resources :users_units, only: [:new, :create, :edit, :update, :destroy] do
+
+    patch :update_level, on: :collection
+    delete :destroy_unit, on: :collection, as: :destroy
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

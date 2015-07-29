@@ -1,0 +1,9 @@
+
+<%= simple_form_for @unit do |f| %>
+  <h2>新增寵物</h2><br>
+  
+  <%= f.input :monster_level, collection: 1..30,input_html: {style: "width: 100px"}, label: "Level" %><br>
+  <%= f.collection_radio_buttons :monster_id, monster_collection,:first, :last %><br><br>
+  <%= f.button :submit, "新增" %>
+<% end %>
+<br><br><br>

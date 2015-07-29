@@ -1,0 +1,66 @@
+<h2>我的資料</h2><br>
+<strong>城與龍暱稱: </strong> <%= @user.game_name%><br><br>
+<strong>城與龍 ID: </strong> <%= @user.game_id%><br><br>
+<strong>Line 暱稱: </strong> <%= @user.line_name%><br><br>
+<strong>備註: </strong> <br>
+<pre><%= @user.remark %></pre>
+<%= link_to '編輯資料', edit_user_path, class: "btn btn-default" %>
+<hr>
+<h2>我的寵物</h2>
+<p>
+  <% @user.users_units.each do |unit| %>
+    <div class="unit item">
+      <%= link_to '#', :"data-toggle" => "modal", :"data-target" => "#unitModal", :"data-id" => "#{unit.id}", :"data-level" => "#{unit.monster_level}", :"data-action" => users_unit_path(unit) do %>
+        <%= image_tag("#{unit.image_number}.jpg") %>
+      <% end %>
+      <div class="mainUnit">✭</div>
+      <div class="level">Lv<%= unit.monster_level %></div> 
+    </div>
+  <% end %>
+  <br>
+</p>
+<br>
+<%= link_to '新增寵物', new_user_unit_path, class: "btn btn-default" %>
+
+
+<div class="modal fade" id="unitModal" tabindex="-1" role="dialog" aria-labelledby="unitModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="unitModalLabel">New message</h4>
+      </div>
+      <%= simple_form_for UsersUnit.new, url: update_level_users_units_path, method: :patch do |f| %>
+        <div class="modal-body">
+          <%= f.input :id, as: :hidden %>
+          <%= f.input :monster_level, collection: 1..30 %>
+          
+        
+        </div>
+        <div class="modal-footer">
+          <%= link_to '刪除', destroy_users_units_path, class:"btn btn-danger", method: :delete, :data => {:confirm => "確認刪除?"}, id: 'delete_btn' %>
+          <%= link_to "Remove", '', :method => :update, :data => {:confirm => "You Sure?"} %>
+          <%= f.button :submit, "刪除", class: "btn-danger", :confirm => '確認刪除?' %>
+          <%= f.button :submit, "更新", class: "btn-primary" %>
+        </div>
+      <% end %>
+
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+  $('#unitModal').on('show.bs.modal', function (event) {
+    var button = $(event.relatedTarget) // Button that triggered the modal
+    var id = button.data('id'); // Extract info from data-* attributes
+    var level = button.data('level'); // Extract info from data-* attributes
+    var action = button.data('action')
+    // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+    // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+    var modal = $(this);
+    modal.find('form').attr('action', action)
+    modal.find('#delete_btn').attr('href', action)
+    modal.find('.modal-body #users_unit_monster_level').val(level);
+    modal.find('.modal-body #users_unit_id').val(id);
+  });
+</script>
