@@ -10,7 +10,7 @@
 <p>
   <% @user.users_units.each do |unit| %>
     <div class="unit item">
-      <%= link_to '#', :"data-toggle" => "modal", :"data-target" => "#unitModal", :"data-id" => "#{unit.id}", :"data-level" => "#{unit.monster_level}", :"data-action" => users_unit_path(unit) do %>
+      <%= link_to '#', :"data-toggle" => "modal", :"data-target" => "#unitModal", :"data-id" => "#{unit.id}", :"data-level" => "#{unit.monster_level}", :"data-action" => users_unit_path(unit), data: { image: image_path("#{unit.image_number}.jpg")} do %>
         <%= image_tag("#{unit.image_number}.jpg") %>
       <% end %>
       <div class="mainUnit">✭</div>
@@ -28,19 +28,18 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="unitModalLabel">New message</h4>
+        <h4 class="modal-title" id="unitModalLabel">更新寵物資訊</h4>
       </div>
       <%= simple_form_for UsersUnit.new, url: update_level_users_units_path, method: :patch do |f| %>
         <div class="modal-body">
           <%= f.input :id, as: :hidden %>
-          <%= f.input :monster_level, collection: 1..30 %>
+          <p id="modalImage" class="text-center"></p>
+          <%= f.input :monster_level, label: "Level" ,collection: 1..30, input_html: {style: "width: 100px"} %>
           
         
         </div>
         <div class="modal-footer">
           <%= link_to '刪除', destroy_users_units_path, class:"btn btn-danger", method: :delete, :data => {:confirm => "確認刪除?"}, id: 'delete_btn' %>
-          <%= link_to "Remove", '', :method => :update, :data => {:confirm => "You Sure?"} %>
-          <%= f.button :submit, "刪除", class: "btn-danger", :confirm => '確認刪除?' %>
           <%= f.button :submit, "更新", class: "btn-primary" %>
         </div>
       <% end %>
@@ -55,6 +54,7 @@
     var id = button.data('id'); // Extract info from data-* attributes
     var level = button.data('level'); // Extract info from data-* attributes
     var action = button.data('action')
+    var image = button.data('image')
     // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
     // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
     var modal = $(this);
@@ -62,5 +62,6 @@
     modal.find('#delete_btn').attr('href', action)
     modal.find('.modal-body #users_unit_monster_level').val(level);
     modal.find('.modal-body #users_unit_id').val(id);
+    // modal.find('#modalImage').html("<img src='" + image + "' style='width: 60px'>")
   });
 </script>
