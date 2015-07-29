@@ -38,6 +38,7 @@
 
   <div class="container">
     <p class="label label-info"><%= flash[:notice] %></p>
+    <p class="label label-warning"><%= flash[:alert] %></p>
     <p class="label label-danger"><%= flash[:error] %></p>
     <%= yield %>
   </div>

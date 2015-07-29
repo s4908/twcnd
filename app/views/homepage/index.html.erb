@@ -11,8 +11,8 @@
           </div>
         <% end %>
       </div>
-
       <pre><%= user.remark%></pre>
+      <p class="text-right updateTime" >updated at <%= time_ago_in_words(user.updated_at) %> ago</p>
       <hr>
     </div>
 <% end %>

@@ -11,6 +11,7 @@ class UsersUnitsController < ApplicationController
   def create
     @unit = current_user.users_units.new(users_unit_params)
     if @unit.save
+      current_user.touch
       flash[:notice] = "新增寵物成功！"
       redirect_to user_path
     else

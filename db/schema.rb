@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20150728121443) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "monsters", force: :cascade do |t|
     t.string   "name"
     t.integer  "image_number"
@@ -40,8 +43,8 @@ ActiveRecord::Schema.define(version: 20150728121443) do
     t.boolean  "info_completed"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "users_units", force: :cascade do |t|
     t.integer  "user_id"

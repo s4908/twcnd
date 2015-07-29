@@ -31,6 +31,7 @@ hr {
   display: inline-block;
   position: relative;
   width: 60px;
+  margin-right: 5px;
 }
 
 .unit img {
@@ -53,15 +54,11 @@ hr {
   font-size: 12px;
 }
 
-#owl-demo {
-  height: 60px;
+.updateTime {
+  font-size: 12px;
+  color: #8d8d8d;
 }
 
-#owl-demo .item{
-  margin: 3px;
-  width: 60px;
-}
-#owl-demo .item img{
-  display: inline-block;
-  height: 60px;
+.owl-carousel {
+  margin-top: 8px;
 }
