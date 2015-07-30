@@ -43,6 +43,7 @@ gem 'faker'
 group :production do
   gem 'rails_12factor'
   gem 'pg'
+  gem 'faker'
 end
 
 group :development, :test do
