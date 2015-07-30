@@ -1,6 +1,7 @@
 class UserController < ApplicationController
   before_action :set_user
   before_action :authenticate_user!
+  
   def edit
   end
 
@@ -16,14 +17,11 @@ class UserController < ApplicationController
     else
       flash.now[:error] = "請確認欄位是否填寫正確"
       render :edit
-
     end
-
     
   end
 
 private
-
   def set_user
     @user = current_user
   end

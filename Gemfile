@@ -38,6 +38,7 @@ gem 'devise'
 # Simple Form - Rails forms made easy.
 gem 'simple_form'
 
+gem 'faker'
 
 group :production do
   gem 'rails_12factor'

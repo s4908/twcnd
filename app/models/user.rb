@@ -11,5 +11,5 @@ class User < ActiveRecord::Base
   validates :game_id, presence: true, on: :update
 
   scope :info_confirmed, ->{ where(info_completed: true) }
-
+  
 end

@@ -39,17 +39,11 @@ class UsersUnitsController < ApplicationController
     end
   end
 
-  def destroy_unit
-    @unit = current_user.users_units.find(params[:users_unit][:id]).destroy
-    flash[:notice] = "寵物已刪除！"
-  end
 
 private
   def users_unit_params
     params.require(:users_unit).permit(:monster_id, :monster_level)
   end
 
-  def users_unit_level_params
-    params.require(:users_unit).permit(:monster_level)
-  end
+
 end
