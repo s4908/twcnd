@@ -20,7 +20,7 @@
 
 body { 
   background-color: #FFE8C3;
-  padding-top: 70px;
+  padding-top: 50px;
 }
 pre {
   background-color: #F1F3DA;
@@ -69,4 +69,16 @@ hr {
 }
 .owl-theme .owl-controls {
   margin-top: -10px;
+}
+
+.row-centered {
+    text-align:center;
+}
+.col-centered {
+    display:inline-block;
+    float:none;
+    /* reset the text-align */
+    text-align:left;
+    /* inline-block space fix */
+    margin-right:-4px;
 }

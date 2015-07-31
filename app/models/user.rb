@@ -11,5 +11,7 @@ class User < ActiveRecord::Base
   validates :game_id, presence: true, on: :update
 
   scope :info_confirmed, ->{ where(info_completed: true) }
-  
+  scope :name_include, ->(name){where("lower(game_name) like ? or lower(line_name) like ?", "%#{name.downcase}%", "%#{name.downcase}%")}
+
+  paginates_per 25
 end

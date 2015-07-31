@@ -4,10 +4,6 @@ class UsersUnitsController < ApplicationController
     @unit = current_user.users_units.new
   end
 
-  def edit
-    @unit = current_user.users_units.where(id: params[:id])
-  end
-
   def create
     @unit = current_user.users_units.new(users_unit_params)
     if @unit.save
@@ -21,10 +17,8 @@ class UsersUnitsController < ApplicationController
     
   end
 
-  def destroy
-    @unit = current_user.users_units.find(params[:id]).destroy
-    flash[:notice] = "寵物已刪除！"
-    redirect_to user_path 
+  def edit
+    @unit = current_user.users_units.where(id: params[:id])
   end
 
   def update
@@ -37,6 +31,12 @@ class UsersUnitsController < ApplicationController
       flash[:error] = "更新失敗！"
       redirect_to user_path
     end
+  end
+
+  def destroy
+    @unit = current_user.users_units.find(params[:id]).destroy
+    flash[:notice] = "寵物已刪除！"
+    redirect_to user_path 
   end
 
 

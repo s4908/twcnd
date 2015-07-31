@@ -1,9 +1,11 @@
 # Castle and Dragon 戰友系統
 
-demo: 
-[http://castle-and-dragon-demo.herokuapp.com/](https://castle-and-dragon-demo.herokuapp.com/)
+A friends system for mobile game [Castle and Dragon](http://www.asobism.co.jp/social/shirodora/)
+
+#### Demo: 
+[http://castle-and-dragon-demo.herokuapp.com/](http://castle-and-dragon-demo.herokuapp.com/)
 
 
-Screenshot:
+#### Screenshot:
 
-<img src="http://i.imgur.com/0dKeJO6.png?1" width=250px>
+<img src="https://github.com/s4908/twcnd/blob/master/screenshot.png" width=300px>

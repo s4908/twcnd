@@ -1,4 +1,28 @@
-<%@users.each do |user| %>
+
+
+<div class="row text-center" style="margin-bottom: 15px;">
+  <div class="col-xs-10 col-sm-10 col-md-8 col-lg-8 col-centered">
+    <div id="custom-search-input">
+    　<%= form_for '', url: root_path, method: :get do |f| %>
+        <div class="input-group">
+          <input type="text" class="form-control input-sm" name="search" 
+            placeholder= "輸入暱稱查詢" <%= @search_param.blank? ? "": raw("value='#{@search_param}'") %> />
+          <span class="input-group-btn">
+            <button class="btn btn-default btn-sm" type="submit">
+              <i class="glyphicon glyphicon-search"></i>
+            </button>
+          </span>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+  <%= "查無資料" if @users.empty? %>
+</div>
+<% @users.each do |user| %>
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 user">
       <strong>遊戲暱稱:</strong> <%= user.game_name %> <span>(<%= user.game_id %>)</span><br>
       <strong>LINE暱稱:</strong> <%= user.line_name %> <br>
@@ -16,3 +40,5 @@
       <hr>
     </div>
 <% end %>
+<div class="text-center" ><%= paginate @users %></div>
+</div>
